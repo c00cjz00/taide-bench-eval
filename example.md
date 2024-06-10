@@ -85,10 +85,114 @@ Scope Limitation (1-5):
 ### Scope Limitation (範疇限制): 4
 這個指令很好地限制了答案的範疇。它清楚地要求關於管理壓力和焦慮的方法，因此模型會集中在這個主題上回答。然而，它仍然留有一些空間讓模型自由發揮，例如可以包含不同種類的技術和建議，這樣使得回答不會過於狹窄或限制。
 
+
+
 ### 總評
 - Clarity: 5
 - Specificity: 3
 - Scope Limitation: 4
 
 綜合以上評價，這個指令清晰度高，指引明確，但可以通過增加更多具體細節來提高其具體性和範疇限制。
+```
+
+
+## eample
+```
+
+你是一個幫助性強且用於精確檢查回答品質的Assistant。
+[評估指南]
+請針對Assistant的翻譯進行評估。考慮到翻譯是給台灣的讀者看，請特別留意以下細項：
+語法正確性：檢查翻譯的句子是否在語法上正確無誤。
+用詞選擇：檢查使用的詞彙是否正確且適當，並符合台灣中文的習慣。
+保留原文意思：翻譯是否忠實於原文，並保留其主要意思和細節。
+文化和語境適應性：檢查翻譯是否考慮到台灣的文化和語境，特別是當原文中有可能產生誤解或與台灣文化有出入的內容。
+使用目標語言：檢查是否完全使用了目標語言，並避免了不必要的原文語言內容。
+[問題開始]
+{question}
+[問題結束]
+
+[Assistant 回答開始]
+{answer}
+[Assistant 回答結束]
+
+在給出分數時，請按照以下指引：
+1-3分：大部分的翻譯都存在問題。
+4-6分：翻譯中存在一些明顯的錯誤或遺漏。
+7-8分：翻譯大致上是正確的，但還有一些小問題。\n9-10分：翻譯非常精確，幾乎沒有任何問題。
+請於最後一行輸出 Assistant 的分數，並且格式為 Score:分數
+
+
+
+question="""
+Federated learning is a decentralized approach to machine learning where multiple devices or servers collaborate to train a shared model without exchanging their local data. Instead of sending raw data to a central server, each device (or "client") trains the model on its own local dataset and only shares the model updates (e.g., gradients or parameters) with a central coordinator. The central coordinator then aggregates these updates to improve the global model. This process is repeated iteratively until the model reaches the desired performance.
+
+Key aspects of federated learning include:
+
+Data Privacy: Since the raw data never leaves the clients' devices, federated learning enhances data privacy and security. This is particularly important for sensitive information, such as medical records or personal data.
+
+Decentralization: Training is distributed across multiple devices, which reduces the reliance on a central server and makes the system more robust against failures.
+
+Scalability: Federated learning can leverage the computational power of numerous edge devices (like smartphones, IoT devices, etc.), enabling scalable model training without overloading a single server.
+
+Communication Efficiency: To minimize communication overhead, only model updates (which are typically smaller in size than the raw data) are transmitted. Techniques such as model compression, quantization, and sparsification are often used to further reduce the amount of data sent.
+
+Personalization: Since models are trained on local data, they can be fine-tuned to better fit the specific characteristics of data on each device, leading to more personalized and accurate predictions.
+
+Federated learning is applied in various domains, including healthcare, finance, and mobile applications, where data privacy and security are paramount. For example, in healthcare, federated learning allows hospitals to collaboratively train a predictive model on patient data without sharing sensitive patient records. In mobile applications, federated learning can improve features like predictive text and personalized recommendations by learning from user behavior on individual devices while maintaining user privacy.
+"""
+
+answer="""
+聯邦學習是一種去中心化的機器學習方法，在這種方法中，多個設備或伺服器協作訓練一個共享模型，而不交換其本地數據。每個設備（或“客戶端”）在自己的本地數據集上訓練模型，並且僅共享模型更新（例如梯度或參數）給中央協調器。中央協調器然後聚合這些更新來改進全局模型。這個過程反覆進行，直到模型達到期望的性能。
+
+聯邦學習的關鍵方面包括：
+
+數據隱私：由於原始數據從未離開客戶端設備，聯邦學習增強了數據的隱私性和安全性。這對於醫療記錄或個人數據等敏感信息特別重要。
+
+去中心化：訓練過程分佈在多個設備上，這減少了對中央伺服器的依賴，使系統在面對故障時更加穩健。
+
+可擴展性：聯邦學習可以利用大量邊緣設備（如智能手機、物聯網設備等）的計算能力，實現可擴展的模型訓練，而不會過載單一伺服器。
+
+通信效率：為了最小化通信開銷，僅傳輸模型更新（通常比原始數據小）。通常使用模型壓縮、量化和稀疏化等技術來進一步減少傳輸數據量。
+
+個性化：由於模型在本地數據上訓練，可以更好地適應每個設備上的數據特性，從而提供更個性化和準確的預測。
+
+聯邦學習應用於包括醫療、金融和移動應用等各種領域，其中數據隱私和安全至關重要。例如，在醫療領域，聯邦學習允許醫院在不共享敏感病人記錄的情況下，共同訓練一個預測模型。在移動應用中，聯邦學習可以通過學習每個設備上用戶行為，來改進預測文本和個性化推薦功能，同時保持用戶隱私。
+"""
+```
+```
+[評估指南]
+請針對Assistant的翻譯進行評估。考慮到翻譯是給台灣的讀者看，請特別留意以下細項：
+語法正確性：檢查翻譯的句子是否在語法上正確無誤。
+用詞選擇：檢查使用的詞彙是否正確且適當，並符合台灣中文的習慣。
+保留原文意思：翻譯是否忠實於原文，並保留其主要意思和細節。
+文化和語境適應性：檢查翻譯是否考慮到台灣的文化和語境，特別是當原文中有可能產生誤解或與台灣文化有出入的內容。
+使用目標語言：檢查是否完全使用了目標語言，並避免了不必要的原文語言內容。
+
+[Assistant 回答開始]
+聯邦學習是一種去中心化的機器學習方法，在這種方法中，多個設備或伺服器協作訓練一個共享模型，而不交換其本地數據。每個設備（或“客戶端”）在自己的本地數據集上訓練模型，並且僅共享模型更新（例如梯度或參數）給中央協調器。中央協調器然後聚合這些更新來改進全局模型。這個過程反覆進行，直到模型達到期望的性能。
+
+聯邦學習的關鍵方面包括：
+
+數據隱私：由於原始數據從未離開客戶端設備，聯邦學習增強了數據的隱私性和安全性。這對於醫療記錄或個人數據等敏感信息特別重要。
+
+去中心化：訓練過程分佈在多個設備上，這減少了對中央伺服器的依賴，使系統在面對故障時更加穩健。
+
+可擴展性：聯邦學習可以利用大量邊緣設備（如智能手機、物聯網設備等）的計算能力，實現可擴展的模型訓練，而不會過載單一伺服器。
+
+通信效率：為了最小化通信開銷，僅傳輸模型更新（通常比原始數據小）。通常使用模型壓縮、量化和稀疏化等技術來進一步減少傳輸數據量。
+
+個性化：由於模型在本地數據上訓練，可以更好地適應每個設備上的數據特性，從而提供更個性化和準確的預測。
+
+聯邦學習應用於包括醫療、金融和移動應用等各種領域，其中數據隱私和安全至關重要。例如，在醫療領域，聯邦學習允許醫院在不共享敏感病人記錄的情況下，共同訓練一個預測模型。在移動應用中，聯邦學習可以通過學習每個設備上用戶行為，來改進預測文本和個性化推薦功能，同時保持用戶隱私。
+[Assistant 回答結束]
+
+評估：
+
+語法正確性：翻譯的語法正確無誤。
+用詞選擇：用詞適當，符合台灣中文的習慣。
+保留原文意思：翻譯忠實於原文，並保留了主要意思和細節。
+文化和語境適應性：翻譯考慮到台灣的文化和語境，沒有產生誤解或文化出入。
+使用目標語言：完全使用了正體中文，沒有不必要的原文語言內容。
+
+Score: 10
 ```
